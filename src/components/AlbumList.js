@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //^destructured but still importing React
 
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 
 //functional components present static data, can't handle fetching data, easy to write
@@ -44,9 +44,9 @@ class AlbumList extends Component {
     console.log(this.state);
 
     return (
-      <View>
+      <ScrollView>
         {this.renderAlbums()}
-      </View>
+      </ScrollView>
     );
   }
 }
