@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //^destructured but still importing React
 
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import axios from 'axios';
 
 //functional components present static data, can't handle fetching data, easy to write
@@ -10,6 +10,7 @@ import axios from 'axios';
 //functional is one way, data goes in, JSX comes out; ex. Header
 //lifecycle methods are an advantage of class based components
 //functions that are placed on our class are lifecycle methods
+import AlbumDetail from './AlbumDetail';
 
 class AlbumList extends Component {
   state = { albums: [] }; 
@@ -31,11 +32,14 @@ class AlbumList extends Component {
   //componentWillMount as soon as the component loads
 
   renderAlbums() {
-    return this.state.albums.map(album => <Text key={album.title}>{album.title}</Text>
+    return this.state.albums.map(album => 
+      <AlbumDetail key={album.title} album={album}/>
     );
   }
+//^^^By far the best key is an individual id such as the album title.
+//^^album={album} is passing album as props to the child component.
 
-  render() {
+render() {
     console.log(this.state);
 
     return (
