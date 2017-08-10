@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 // this will be a functional component
 
@@ -50,6 +51,10 @@ const AlbumDetail = ({ album }) => {
       <CardSection>
         <Image style={imageStyle} source={{ url: image }} />
       </CardSection>
+      <CardSection>
+        <Button />
+      </CardSection>
+
     </Card>
   );
 };
