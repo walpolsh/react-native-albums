@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
@@ -9,7 +9,7 @@ import Button from './Button';
 const AlbumDetail = ({ album }) => {
   //^ import the object album from props, rather than just props from the album object
   //this is more specific
-  const { title, artist, thumbnail_image, image } = album;
+  const { title, artist, thumbnail_image, image, url } = album;
 
   //^^ destructuring assignment: used on the left-hand side of the assignment
   // to define what values to unpack from the sourced variable.
@@ -49,10 +49,12 @@ const AlbumDetail = ({ album }) => {
         </View>
       </CardSection>
       <CardSection>
-        <Image style={imageStyle} source={{ url: image }} />
+        <Image style={imageStyle} source={{ uri: image }} />
       </CardSection>
       <CardSection>
-        <Button />
+        <Button onPress={() => Linking.openURL(url)}>
+          Buy Now!!
+        </Button>
       </CardSection>
 
     </Card>
